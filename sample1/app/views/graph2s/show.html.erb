@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to graph2s_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_graph2_path(@graph2), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show graph2</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Time:</dt>
+  <dd><%= @graph2.time %></dd>
+
+  <dt>Temp:</dt>
+  <dd><%= @graph2.temp %></dd>
+
+  <dt>Humi:</dt>
+  <dd><%= @graph2.humi %></dd>
+
+</dl>

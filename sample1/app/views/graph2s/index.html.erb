@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_graph2_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Graph2
+  <% end %>
+  <h1>Listing graph2s</h1>
+</div>
+
+<%= line_chart [
+    {name: "Temp", data: @plots2temp},
+    {name: "Humi", data: @plots2humi}
+  ],
+  title: "Temp & Humi Graph",
+  library: { vAxes: { 0 => {logScale: false, title:'Temp'}, 1 => {logScale: false, title:'Humi'} },
+  series: { 0 => {targetAxisIndex: 0 }, 1 => {targetAxisIndex: 1 }}} %>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Time</th>
+            <th>Temp</th>
+            <th>Humi</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @graph2s) do |graph2| %>
+            <td><%= graph2.time %></td>
+            <td><%= graph2.temp %></td>
+            <td><%= graph2.humi %></td>
+            <td><%= link_to 'Show', graph2 %></td>
+        <td><%= link_to 'Edit', edit_graph2_path(graph2) %></td>
+        <td><%= link_to 'Destroy', graph2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

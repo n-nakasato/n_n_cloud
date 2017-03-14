@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_graph_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Graph
+  <% end %>
+  <h1>Listing graphs</h1>
+</div>
+
+<%= line_chart @plots %>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @graphs) do |graph| %>
+            <td><%= graph.x %></td>
+            <td><%= graph.y %></td>
+            <td><%= link_to 'Show', graph %></td>
+        <td><%= link_to 'Edit', edit_graph_path(graph) %></td>
+        <td><%= link_to 'Destroy', graph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
