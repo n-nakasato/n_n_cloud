@@ -1,0 +1,440 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>ファーム@ネット</title>
+    <!-- for responsive -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- bootstrap -->
+    <link href="lib/adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- adminLTE style -->
+    <link href="lib/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/adminlte/dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+	#mapField {
+	  width: auto;
+	  height: 350px;
+	}
+    </style>
+</head>
+<body class="skin-blue">
+    <div class="wrapper">
+
+        <!-- トップメニュー -->
+        <header class="main-header">
+
+            <!-- ロゴ -->
+            <a href="" class="logo">ファーム@ネット</a>
+
+            <!-- トップメニュー -->
+            <nav class="navbar navbar-static-top" role="navigation">
+
+                <!-- メニュー項目 -->
+                <!-- 小さくなった時に消す -->
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+
+                    <!-- サイドバー制御 -->
+                    <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+
+                    <ul class="nav navbar-nav">
+                        <li><a href="">顧客管理</a></li>
+                        <li><a href="">売上管理</a></li>
+                        <!-- doropdown -->
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">その他<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="">その他１</a></li>
+                                <li><a href="">その他２</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- 右に寄せるメニュ :navbar-rightとかもあるが、マージが無い -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li><a href=""><i class="fa fa-sign-out"></i>ログアウト</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </header><!-- end header -->
+
+        <!-- サイドバー -->
+        <aside class="main-sidebar">
+
+            <section class="sidebar">
+
+                <ul class="sidebar-menu">
+
+                    <!-- メニューヘッダ -->
+                    <li class="header">機能一覧</li>
+
+                    <!-- メニュー項目 -->
+                    <li class="active"><a href=""><i class="fa fa-circle-o"></i>新規登録</a>
+                    <li><a href=""><i class="fa fa-circle-o"></i>検索</a>
+                    <!-- treeview -->
+                    <li class="treeview">
+                        <a href=""><i class="fa fa-circle-o"></i>その他<i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="">その他１</a></li>
+                            <li><a href="">その他２</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <!-- content -->
+        <div class="content-wrapper">
+
+            <!-- コンテンツヘッダ -->
+            <section class="content-header">
+                <h1>ホーム</h1>
+                <!-- パンくず -->
+                <ol class="breadcrumb">
+                    <li><a href="">Home</a></li>
+                    <li>現在地</li>
+                </ol>
+            </section>
+
+            <!-- メインコンテンツ -->
+            <section class="content">
+
+                <!-- コンテンツ1 -->
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">端末マップ</h3>
+                    </div>
+                    <div id="mapField"></div>
+                </div>
+
+                <div class="row">
+
+                    <!-- col -->
+                    <div class="col-xs-6">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">1号機</h3>
+                            </div>
+                            <div class="box-body">
+                            	<h2><i class="ion-thermometer"></i><i class="ion-ionic"></i></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- col -->
+                    <div class="col-xs-6">
+                        <div class="box box-danger">
+                            <div class="box-header">
+                                <h3 class="box-title">ボックスタイトル右</h3>
+                            </div>
+                            <div class="box-body">
+                                <p>ボックスボディー</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div><!-- end row -->
+
+				<div class="row">
+				<div class="col-md-6">
+				  <!-- AREA CHART -->
+				  <div class="box box-primary">
+				    <div class="box-header with-border">
+				      <h3 class="box-title">Area Chart</h3>
+
+				      <div class="box-tools pull-right">
+				        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				        </button>
+				        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				      </div>
+				    </div>
+				    <div class="box-body">
+				      <div class="chart">
+				        <canvas id="areaChart" style="height:250px"></canvas>
+				      </div>
+				    </div>
+				    <!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+
+				  <!-- DONUT CHART -->
+				  <div class="box box-danger">
+				    <div class="box-header with-border">
+				      <h3 class="box-title">Donut Chart</h3>
+
+				      <div class="box-tools pull-right">
+				        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				        </button>
+				        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				      </div>
+				    </div>
+				    <div class="box-body">
+				      <canvas id="pieChart" style="height:250px"></canvas>
+				    </div>
+				    <!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+
+				</div>
+				<!-- /.col (LEFT) -->
+				<div class="col-md-6">
+				  <!-- LINE CHART -->
+				  <div class="box box-info">
+				    <div class="box-header with-border">
+				      <h3 class="box-title">Line Chart</h3>
+
+				      <div class="box-tools pull-right">
+				        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				        </button>
+				        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				      </div>
+				    </div>
+				    <div class="box-body">
+				      <div class="chart">
+				        <canvas id="lineChart" style="height:250px"></canvas>
+				      </div>
+				    </div>
+				    <!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+
+				  <!-- BAR CHART -->
+				  <div class="box box-success">
+				    <div class="box-header with-border">
+				      <h3 class="box-title">Bar Chart</h3>
+
+				      <div class="box-tools pull-right">
+				        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				        </button>
+				        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				      </div>
+				    </div>
+				    <div class="box-body">
+				      <div class="chart">
+				        <canvas id="barChart" style="height:230px"></canvas>
+				      </div>
+				    </div>
+				    <!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+
+				</div>
+				<!-- /.col (RIGHT) -->
+				</div>
+				<!-- /.row -->
+
+            </section>
+
+        </div>
+
+
+
+        <!-- フッター -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">Version1.0</div>
+            <strong>Copyright &copy; 2015</strong>, All rights reserved.
+        </footer>
+
+    </div><!-- end wrapper -->
+    <!-- JS -->
+    
+    <!-- Google map -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyApMX_uE-qoB3gBgEdguuLntx0hRtsuXeM"></script>
+    <!-- jquery -->
+    <script src="lib/adminlte/plugins/jQuery/jQuery-2.2.3.min.js" type="text/javascript"></script>
+    <!-- bootstrap -->
+    <script src="lib/adminlte/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- ChartJS 1.0.1 -->
+	<script src="lib/adminlte/plugins/chartjs/Chart.min.js"></script>
+	<!-- FastClick -->
+	<script src="lib/adminlte/plugins/fastclick/fastclick.js"></script>
+	<!-- AdminLTE App -->
+	<script src="lib/adminlte/dist/js/app.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="lib/adminlte/dist/js/demo.js"></script>
+	<!-- page script -->    
+	<script>
+	  $(function () {
+	    /* ChartJS
+	     * -------
+	     * Here we will create a few charts using ChartJS
+	     */
+	    $.getJSON(
+	      'http://localhost:3000/api/v1/pages/charts/chartjs/area_chart.json',
+	      function(data) {
+	        //--------------
+	        //- AREA CHART -
+	        //--------------
+	 
+	        // Get context with jQuery - using jQuery's .get() method.
+	        var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+	        // This will get the first returned node in the jQuery collection.
+	        var areaChart = new Chart(areaChartCanvas);
+	 
+	        var areaChartData = data;
+	 
+	        var areaChartOptions = {
+	          //Boolean - If we should show the scale at all
+	          showScale: true,
+	          //Boolean - Whether grid lines are shown across the chart
+	          scaleShowGridLines: false,
+	          //String - Colour of the grid lines
+	          scaleGridLineColor: "rgba(0,0,0,.05)",
+	          //Number - Width of the grid lines
+	          scaleGridLineWidth: 1,
+	          //Boolean - Whether to show horizontal lines (except X axis)
+	          scaleShowHorizontalLines: true,
+	          //Boolean - Whether to show vertical lines (except Y axis)
+	          scaleShowVerticalLines: true,
+	          //Boolean - Whether the line is curved between points
+	          bezierCurve: true,
+	          //Number - Tension of the bezier curve between points
+	          bezierCurveTension: 0.3,
+	          //Boolean - Whether to show a dot for each point
+	          pointDot: false,
+	          //Number - Radius of each point dot in pixels
+	          pointDotRadius: 4,
+	          //Number - Pixel width of point dot stroke
+	          pointDotStrokeWidth: 1,
+	          //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+	          pointHitDetectionRadius: 20,
+	          //Boolean - Whether to show a stroke for datasets
+	          datasetStroke: true,
+	          //Number - Pixel width of dataset stroke
+	          datasetStrokeWidth: 2,
+	          //Boolean - Whether to fill the dataset with a color
+	          datasetFill: true,
+	          //String - A legend template
+	          legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+	          //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+	          maintainAspectRatio: true,
+	          //Boolean - whether to make the chart responsive to window resizing
+	          responsive: true
+	        };
+	 
+	        //Create the line chart
+	        areaChart.Line(areaChartData, areaChartOptions);
+	 
+	        //-------------
+	        //- LINE CHART -
+	        //--------------
+	        var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+	        var lineChart = new Chart(lineChartCanvas);
+	        var lineChartOptions = areaChartOptions;
+	        lineChartOptions.datasetFill = false;
+	 
+	        lineChart.Line(areaChartData, lineChartOptions);
+	 
+	        //-------------
+	        //- BAR CHART -
+	        //-------------
+	        var barChartCanvas = $("#barChart").get(0).getContext("2d");
+	        var barChart = new Chart(barChartCanvas);
+	        var barChartData = areaChartData;
+	        barChartData.datasets[1].fillColor = "#00a65a";
+	        barChartData.datasets[1].strokeColor = "#00a65a";
+	        barChartData.datasets[1].pointColor = "#00a65a";
+	        var barChartOptions = {
+	          //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+	          scaleBeginAtZero: true,
+	          //Boolean - Whether grid lines are shown across the chart
+	          scaleShowGridLines: true,
+	          //String - Colour of the grid lines
+	          scaleGridLineColor: "rgba(0,0,0,.05)",
+	          //Number - Width of the grid lines
+	          scaleGridLineWidth: 1,
+	          //Boolean - Whether to show horizontal lines (except X axis)
+	          scaleShowHorizontalLines: true,
+	          //Boolean - Whether to show vertical lines (except Y axis)
+	          scaleShowVerticalLines: true,
+	          //Boolean - If there is a stroke on each bar
+	          barShowStroke: true,
+	          //Number - Pixel width of the bar stroke
+	          barStrokeWidth: 2,
+	          //Number - Spacing between each of the X value sets
+	          barValueSpacing: 5,
+	          //Number - Spacing between data sets within X values
+	          barDatasetSpacing: 1,
+	          //String - A legend template
+	          legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+	          //Boolean - whether to make the chart responsive
+	          responsive: true,
+	          maintainAspectRatio: true
+	        };
+	 
+	        barChartOptions.datasetFill = false;
+	        barChart.Bar(barChartData, barChartOptions);
+	 
+	      }
+	    );
+	 
+	    $.getJSON(
+	      'http://localhost:3000/api/v1/pages/charts/chartjs/pie.json',
+	      function(data) {
+	        //-------------
+	        //- PIE CHART -
+	        //-------------
+	        // Get context with jQuery - using jQuery's .get() method.
+	        var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+	        var pieChart = new Chart(pieChartCanvas);
+	         
+	        var pieOptions = {
+	          //Boolean - Whether we should show a stroke on each segment
+	          segmentShowStroke: true,
+	          //String - The colour of each segment stroke
+	          segmentStrokeColor: "#fff",
+	          //Number - The width of each segment stroke
+	          segmentStrokeWidth: 2,
+	          //Number - The percentage of the chart that we cut out of the middle
+	          percentageInnerCutout: 50, // This is 0 for Pie charts
+	          //Number - Amount of animation steps
+	          animationSteps: 100,
+	          //String - Animation easing effect
+	          animationEasing: "easeOutBounce",
+	          //Boolean - Whether we animate the rotation of the Doughnut
+	          animateRotate: true,
+	          //Boolean - Whether we animate scaling the Doughnut from the centre
+	          animateScale: false,
+	          //Boolean - whether to make the chart responsive to window resizing
+	          responsive: true,
+	          // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+	          maintainAspectRatio: true,
+	          //String - A legend template
+	          legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+	        };
+	        //Create pie or douhnut chart
+	        // You can switch between pie and douhnut using the method below.
+	        pieChart.Doughnut(data, pieOptions);
+	      }
+	    );
+	  });
+	</script>
+
+	<script>
+		function mapInit() {
+		    var centerPosition = new google.maps.LatLng(35.656956, 139.695518);
+		    var option = {
+		        zoom : 18,
+		        center : centerPosition,
+		        mapTypeId : google.maps.MapTypeId.ROADMAP
+		    };
+		    //地図本体描画
+		    var googlemap = new google.maps.Map(document.getElementById("mapField"), option);
+		}
+	 
+	    mapInit();
+	</script>
+
+</body>
+</html>
